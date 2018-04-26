@@ -21,6 +21,8 @@ public class MainPage extends Application {
 	Button UpdateFlightButton = new Button("Update Flight");
 	Button CancelButton = new Button ("Cancel");
 	
+	Button SignOut= new Button("Signout");
+	
 	
 
 	public static void main(String[] args) throws Exception {
@@ -42,10 +44,11 @@ public class MainPage extends Application {
 		GridPane.setConstraints(ViewFlightStatusButton, 0, 1);
 		GridPane.setConstraints(UpdateFlightButton, 0, 2);
 		GridPane.setConstraints(CancelButton, 0,3);
+		GridPane.setConstraints(SignOut, 0, 4);
 		
 		
-		grid.getChildren().addAll(BookFlightButton, ViewFlightStatusButton, UpdateFlightButton, CancelButton );
-		Scene scene= new Scene(grid, 200,180);
+		grid.getChildren().addAll(BookFlightButton, ViewFlightStatusButton, UpdateFlightButton, CancelButton, SignOut );
+		Scene scene= new Scene(grid, 200,200);
 		window.setScene(scene);
 		window.show();
 		
@@ -87,6 +90,10 @@ public class MainPage extends Application {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
+		});
+		
+		SignOut.setOnAction(e->{
+			window.close();
 		});
 		
 

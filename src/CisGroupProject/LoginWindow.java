@@ -25,7 +25,7 @@ public class LoginWindow extends Application {
 	TextField passwordField = new TextField();
 	
 	Button loginButton = new Button("Login");
-	Button SignoutButton= new Button("Sign out");
+	Button SignoutButton= new Button("Exit");
 
 	Button RegisterButton = new Button("Register");
 	Button ForgotPassword = new Button("Forgot Password");
