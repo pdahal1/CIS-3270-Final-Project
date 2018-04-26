@@ -1,5 +1,7 @@
 package CisGroupProject;
 
+
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -20,10 +22,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-public class BookFlight extends Application {
+public class BookedFlights extends Application {
  
     Stage window;
-    Button addButton= new Button();
     
     Button BackButton= new Button("Back");
    
@@ -67,79 +68,75 @@ public class BookFlight extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         window = primaryStage;
-        DatePicker date;
+//        DatePicker date;
   
-        window.setTitle("Book Your Flight");
+//        window.setTitle("Update Flights");
         
-        GridPane grid = new GridPane();
-        grid.setPadding(new Insets(20, 20, 20, 20));
-        grid.setVgap(8);
-        grid.setHgap(10);
+//        GridPane grid = new GridPane();
+//        grid.setPadding(new Insets(20, 20, 20, 20));
+//        grid.setVgap(8);
+//        grid.setHgap(10);
         
-        Scene scene = new Scene(grid, 400, 200);
+       // Scene scene = new Scene(grid, 400, 200);
         
-        Label flyingFromLabel = new Label("Flying From:");
-        GridPane.setConstraints(flyingFromLabel , 0, 0);
-        TextField flyingFromInput = new TextField();
-        flyingFromInput.setPromptText("Flying From: ");
-        GridPane.setConstraints(flyingFromInput, 1, 0);
+//        Label flyingFromLabel = new Label("Flying From:");
+        //GridPane.setConstraints(flyingFromLabel , 0, 0);
+        //TextField flyingFromInput = new TextField();
+        //flyingFromInput.setPromptText("Flying From: ");
+        //GridPane.setConstraints(flyingFromInput, 1, 0);
       
-        Label flyingToLabel = new Label("Flying To: ");
-        GridPane.setConstraints(flyingToLabel, 0, 1);
-        TextField flyingToInput = new TextField();
-        flyingToInput.setPromptText("Flying To: ");
-        GridPane.setConstraints(flyingToInput, 1, 1);
+       // Label flyingToLabel = new Label("Flying To: ");
+        //GridPane.setConstraints(flyingToLabel, 0, 1);
+        //TextField flyingToInput = new TextField();
+       // flyingToInput.setPromptText("Flying To: ");
+       // GridPane.setConstraints(flyingToInput, 1, 1);
         
-        date = new DatePicker();
-        date.setPromptText("Pick Date: ");
-        GridPane.setConstraints(date, 1, 2); 
+       // date = new DatePicker();
+       // date.setPromptText("Pick Date: ");
+        //GridPane.setConstraints(date, 1, 2);
   
-        Button findFlightButton = new Button("Find Flight");
-        GridPane.setConstraints(findFlightButton, 2, 2);
+        //Button findFlightButton = new Button("Find Flight");
+        //GridPane.setConstraints(findFlightButton, 2, 2);
         
-        GridPane.setConstraints(BackButton, 1, 3);
+       // GridPane.setConstraints(BackButton, 1, 3);
       
-        window.setScene(scene);
-        window.show();
+        //window.setScene(scene);
+        //window.show();
         
-        grid.getChildren().addAll(flyingFromLabel, flyingFromInput, flyingToLabel, flyingToInput, findFlightButton, date, BackButton);
+       // grid.getChildren().addAll(flyingFromLabel, flyingFromInput, flyingToLabel, flyingToInput, findFlightButton, date, BackButton);
         
-  
-        findFlightButton.setOnAction(e-> {
+//  
+//        findFlightButton.setOnAction(e-> {
+//         
+//         try {
          
-         try {
-         if(verifyDatabase(flyingFromInput.getText().toLowerCase(), flyingToInput.getText().toLowerCase(), 
-        dateFlip = date.getValue().format(DateTimeFormatter.BASIC_ISO_DATE)))
-         {
                       
-          TableColumn<ReservationInfo, String> FlightNumColumn = new TableColumn<>("FlightNum");
+          TableColumn<ReservationInfo, String> FlightNumColumn = new TableColumn<>("BookNum");
                 FlightNumColumn.setMinWidth(150);
-                FlightNumColumn.setCellValueFactory(new PropertyValueFactory<>("FlightNum"));
+                FlightNumColumn.setCellValueFactory(new PropertyValueFactory<>("BookNum"));
                 
-             TableColumn<ReservationInfo, String> FlyingToColumn = new TableColumn<>("FlyingTo");
+             TableColumn<ReservationInfo, String> FlyingToColumn = new TableColumn<>("FlightNum");
              FlyingToColumn.setMinWidth(150);
-             FlyingToColumn.setCellValueFactory(new PropertyValueFactory<>("FlyingTo"));
+             FlyingToColumn.setCellValueFactory(new PropertyValueFactory<>("FlightNum"));
                  
-                TableColumn<ReservationInfo, String> flyingFromColumn = new TableColumn<>("flyingFrom");
+                TableColumn<ReservationInfo, String> flyingFromColumn = new TableColumn<>("username");
                 flyingFromColumn.setMinWidth(150);
-                flyingFromColumn.setCellValueFactory(new PropertyValueFactory<>("FlyingFrom"));
-                TableColumn<ReservationInfo, String> dateColumn = new TableColumn<>("date");
-                dateColumn.setMinWidth(150);
-                dateColumn.setCellValueFactory(new PropertyValueFactory<>("Date"));
-                final Button addButton = new Button("Add");
-                TextField AddTo = new TextField();
-                AddTo.setPromptText("FlightNum");
+                flyingFromColumn.setCellValueFactory(new PropertyValueFactory<>("username"));
+                //TableColumn<ReservationInfo, String> dateColumn = new TableColumn<>("date");
+                //dateColumn.setMinWidth(150);
+                //dateColumn.setCellValueFactory(new PropertyValueFactory<>("Date"));
+                
 
                 table = new TableView<>();
                                 
                 table.setItems(getReservationInfo());
                                                
-                table.getColumns().addAll(FlightNumColumn, FlyingToColumn, flyingFromColumn, dateColumn );
+                table.getColumns().addAll(FlightNumColumn, FlyingToColumn, flyingFromColumn);
 
                 VBox vBox = new VBox();
                     
                 vBox.setSpacing(20);       
-                vBox.getChildren().addAll(table, addButton, AddTo);
+                vBox.getChildren().addAll(table);
                 
                 Scene scene2 = new Scene(vBox);
                 
@@ -149,13 +146,13 @@ public class BookFlight extends Application {
                 
                 
         
-         }
          
-         } catch (Exception e1) {
-             e1.printStackTrace();
-         }
+         
+         //} catch (Exception e1) {
+             //e1.printStackTrace();
+        // }
         
-        });
+        //});
         BackButton.setOnAction(e -> {
 			window.close();
 			MainPage MP = new MainPage();
@@ -168,8 +165,6 @@ public class BookFlight extends Application {
 			}
 		});
         
-        
-       
   
         
     }
@@ -185,7 +180,7 @@ public class BookFlight extends Application {
              dateValidate = date;
              
              Connection con = getConnection();
-             PreparedStatement statement = con.prepareStatement("SELECT * FROM bookflight ");
+             PreparedStatement statement = con.prepareStatement("SELECT * FROM bookedflights ");
              ResultSet result = statement.executeQuery();
        
              
@@ -220,7 +215,7 @@ public class BookFlight extends Application {
         ObservableList<ReservationInfo> info = FXCollections.observableArrayList();
       try {
         Connection con = getConnection();
-        PreparedStatement statement = con.prepareStatement("SELECT * FROM bookflight ");
+        PreparedStatement statement = con.prepareStatement("SELECT * FROM bookedflights ");
    
         ResultSet result = statement.executeQuery();
    
@@ -302,6 +297,7 @@ public class BookFlight extends Application {
     
     
 }
+
 
 
 

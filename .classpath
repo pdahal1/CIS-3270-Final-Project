@@ -14,5 +14,7 @@
 	<classpathentry kind="lib" path="C:/Program Files/Java/New folder/lib/plugin.jar"/>
 	<classpathentry kind="lib" path="C:/Program Files/Java/New folder/lib/resources.jar"/>
 	<classpathentry kind="lib" path="C:/Program Files/Java/New folder/lib/rt.jar"/>
+	<classpathentry kind="lib" path="C:/Users/dahal/Desktop/mysql-connector-java-5.1.46-bin.jar"/>
+	<classpathentry kind="lib" path="C:/Users/dahal/Desktop/Spring 2018/Application Development/rs2xml.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
