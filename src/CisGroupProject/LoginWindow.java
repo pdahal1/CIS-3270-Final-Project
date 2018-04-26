@@ -25,9 +25,12 @@ public class LoginWindow extends Application {
 	TextField passwordField = new TextField();
 	
 	Button loginButton = new Button("Login");
+	Button SignoutButton= new Button("Sign out");
 
 	Button RegisterButton = new Button("Register");
 	Button ForgotPassword = new Button("Forgot Password");
+	
+	Button exit = new Button("Log out");
 
 	ConnectionToSql CTS = new ConnectionToSql();
 
@@ -51,6 +54,10 @@ public class LoginWindow extends Application {
 		GridPane.setConstraints(RegisterButton, 1, 3);
 
 		GridPane.setConstraints(ForgotPassword, 1, 4);
+		
+		GridPane.setConstraints(SignoutButton, 1, 5);
+		
+		
 
 		RegistrationWindow rw = new RegistrationWindow();
 		RegisterButton.setOnAction(e -> {
@@ -69,7 +76,11 @@ public class LoginWindow extends Application {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-
+			
+		});
+		
+		SignoutButton.setOnAction(e->{
+			window.close();
 		});
 		ForgotPassword.setOnAction(e -> {
 			ForgotPassword FP = new ForgotPassword();
@@ -80,14 +91,15 @@ public class LoginWindow extends Application {
 				e1.printStackTrace();
 			}
 		});
+		
 
 		GridPane grid = new GridPane();
 		grid.setPadding(new Insets(10, 10, 10, 10));
 		grid.setVgap(15.0);
 
-		grid.getChildren().addAll(loginField, passwordField, loginButton, RegisterButton, ForgotPassword);
+		grid.getChildren().addAll(SignoutButton, loginField, passwordField, loginButton, RegisterButton, ForgotPassword);
 
-		Scene scene = new Scene(grid, 200, 200);
+		Scene scene = new Scene(grid, 300, 300);
 		window.setScene(scene);
 		window.show();
 
