@@ -98,6 +98,7 @@ public class MainPage extends Application {
 		
 
 	}
+	//create connection
 	
 	public static Connection getConnection() throws Exception{
 		try {
